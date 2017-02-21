@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <?php
+    echo "Part 1: \n";
+function isBitten(){
+    $rand=rand(0, 1);
+        if($rand == 0)
+            return true;
+        else
+            return false;
+}
+$b = isBitten();
+    if($b == "true"){
+        printf("Charlie ate my lunch!", $rand);
+    }else{
+        printf("Charlie did not eat my lunch!", $rand);
+    }
+    ?>
+    <br /><br />
+ 
+    <style>
+    .odd {
+        background-color: RED;
+    }
+
+    .even {
+        background-color: BLACK;
+    }
+
+    .cell {
+        padding: 1px;
+        width: 35px;
+        height: 35px;
+        border: 1px solid black;
+        border-spacing: 1px;
+    }
+
+    .board {
+        width: 300px;
+    }
+    </style>
+    <?php
+    echo "Part 2: \n";
+    $odd = " odd ";
+    $even = " even ";
+    $cell = " cell ";
+    $board = " board ";
+
+    echo "<table>";
+    for ($y = 0; $y < 7; $y++) {
+        echo "<tr class='$board'>";
+        for ($x = 0; $x < 7; $x++) {
+            if (($x + $y) % 2 == 1)
+                echo "<th class='" . $odd . $cell . "'></th>";
+            else
+                echo "<th class='" . $even . $cell . "'></th>";
+        }
+        echo "</tr>";
+    }
+    echo "</table>";
+
+    ?>
+
+    <br />
+
+    <?php
+    echo "Part 3: \n";
+    $month = array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+
+    for($a = 0; $a <= 11; $a++){
+        echo "$month[$a],\n";
+    }
+    ?>
+    <br />
+    <?php
+    echo "Part 3: \n";
+    $month = array ('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+    sort($month);
+    for($a = 0; $a <= 11; $a++){
+        echo "$month[$a],\n";
+    }
+    ?>
+    <br />
+   
+    <?php
+    echo "Part 3: \n";
+    $month = array ('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+    foreach($month as $item){
+        echo "$item,\n";
+    }
+    ?>
+    <br />
+    <?php
+    echo "Part 3: \n";
+    $month = array ('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+    sort($month);
+    foreach($month as $a){
+        echo "$a,\n";
+    }
+    ?>
+
+    <br /><br />
+    
+    <?php
+    echo "Part 4: \n";
+      $restaurants = array("Chama Gaucha" => 40.50, "Aviva by Kameel" => 15.00, "Bone's Restaurant" => 65.00, "Umi Sushi Buckhead" => 40.50, "Fandangles" => 30.00, "Capital Grille" => 60.50, "Canoe" => 35.50, "One Flew South" => 21.00, "Fox Bros. BBQ" => 15.00, "South City Kitchen Midtown" => 29.00);
+
+    echo "According to Trip Advisor, the 10 best Restaurants in Atlanta for 2016 are as follows :";
+    echo "<br><br>";
+    Table($restaurants);
+
+    echo "<br>";
+    echo "The 10 best restaurants in Atlanta ordered by Price:";
+    echo "<br><br>";
+    Price($restaurants);
+
+    echo "<br>";
+    echo "The 10 best restaurants in Atlanta in alphabetical order:";
+    echo "<br><br>";
+    Name($restaurants);
+
+    function Price($rest)
+    {
+     asort($rest);
+     Table($rest);
+    }
+
+    function Name($rest)
+    {
+     ksort($rest);
+     Table($rest);
+    }
+
+    function Table($rest){
+        $html = '<table border = "1">';
+        $html .= '<tr>';
+            $html .= '<th>' . 'Restaurant Name'. '</th>';
+            $html .= '<th>' .'Average Cost'. '</th>';
+        $html .= '</tr>';
+
+        foreach( $rest as $key => $val){
+            $html .= '<tr>';
+                $html .= '<td>' . $key." " . '</td>';
+                $html .= '<td>' . $val . '</td>';
+            $html .= '</tr>';
+        }
+        $html .= '</table>';
+        echo $html;
+    }
+    ?>  
+</body>
+</html>
